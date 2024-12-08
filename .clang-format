@@ -1,0 +1,29 @@
+---
+BasedOnStyle: Microsoft
+BraceWrapping:
+  AfterCaseLabel: false
+  AfterClass: false
+  AfterControlStatement: Never
+  AfterEnum: false
+  AfterFunction: false
+  AfterNamespace: false
+  AfterObjCDeclaration: true
+  AfterStruct: false
+  AfterUnion: false
+  AfterExternBlock: true
+  BeforeCatch: true
+  BeforeElse: false
+  BeforeLambdaBody: false
+  BeforeWhile: false
+  IndentBraces: false
+  SplitEmptyFunction: true
+  SplitEmptyRecord: true
+  SplitEmptyNamespace: true
+IndentCaseBlocks: true
+IndentCaseLabels: true
+IndentWidth: 2
+InsertBraces: true
+SpaceAfterTemplateKeyword: false
+TabWidth: 2
+AccessModifierOffset: -1
+SpacesBeforeTrailingComments: 2
