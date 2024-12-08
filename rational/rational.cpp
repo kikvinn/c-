@@ -149,8 +149,9 @@ std::ostream &operator<<(std::ostream &os, const Rational &rational) {
 }
 
 std::istream &operator>>(std::istream &is, Rational &rational) {
-  int32_t num, den = 1;
-  char sep;
+  int32_t num = 0;
+  int32_t den = 1;
+  char sep = 0;
 
   is >> num;
   if (is.peek() == '/') {
