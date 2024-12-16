@@ -1,0 +1,41 @@
+# Укажите минимальную версию CMake
+cmake_minimum_required(VERSION 3.16)
+
+# Название проекта
+project(RationalLibrary)
+
+# Установите стандарт языка C++
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_CXX_COMPILER g++)
+# Добавьте исходные файлы библиотеки
+add_library(rational
+    rational.cpp
+    rational.h
+)
+
+# Укажите заголовочные файлы для библиотеки
+target_include_directories(rational PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+
+# Добавьте Google Test как зависимость
+find_package(GTest REQUIRED)
+
+# Создайте исполняемый файл для тестов
+add_executable(rational_tests
+    test_rational.cpp
+)
+
+# Подключите библиотеку и Google Test к тестам
+target_link_libraries(rational_tests
+    rational
+    GTest::GTest
+    GTest::Main
+    pthread
+)
+
+# Включите тестирование
+enable_testing()
+
+# Зарегистрируйте тесты
+add_test(NAME RationalTests COMMAND rational_tests)

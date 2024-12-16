@@ -3,7 +3,6 @@
 #include <iostream>
 #include <numeric>
 #include <stdexcept>
-#include <stdint.h>
 
 class RationalDivisionByZero : public std::runtime_error {
  public:
@@ -14,33 +13,39 @@ class RationalDivisionByZero : public std::runtime_error {
 // Класс для работы с рациональными числами
 class Rational {
  private:
-  int32_t numerator_;    // Числитель
-  int32_t denominator_;  // Дробитель
+  int numerator_;    // Числитель
+  int denominator_;  // Дробитель
 
   // Метод для упрощения ненулевого дроби
   void Reduce();
 
  public:
   // Конструкторы
-  Rational();  // Пустой конструктор, по умолчанию numerator и denominator равно 0
-  Rational(int32_t value);  // Конструктор с одним аргументом, создает объект Rational с числом value и дробью 1
-  Rational(int32_t numerator, int32_t denominator);  // Конструктор с двумя аргументами, создает объект Rational с
-                                                     // заданными числителем и знаменателем
+  Rational();                                // NOLINT
+  Rational(int num);                         // NOLINT
+  Rational(int numerator, int denominator);  // NOLINT
 
   // Деструктор для освобождения ресурсов
   ~Rational();
 
   // Получение числа в виде целого числа (результат целочисленной деления)
-  int32_t GetNumerator() const;
+  int GetNumerator() const;
 
   // Получение знаменателя рационального числа
-  int32_t GetDenominator() const;
+  int GetDenominator() const;
 
   // Установка числа в виде целого числа
-  void SetNumerator(int32_t num);
+  void SetNumerator(int num);
 
   // Установка знаменаталя для числа
-  void SetDenominator(int32_t den);
+  void SetDenominator(int den);
+
+  // Копирующий конструктор
+  Rational(const Rational &other);
+
+  Rational &operator=(const Rational &other);
+
+  Rational &operator=(const int num);
 
   // Сумма двух рациональных чисел
   Rational operator+(const Rational &other) const;
@@ -74,10 +79,10 @@ class Rational {
 
   // Инкремент
   Rational &operator++();
-  Rational operator++(int32_t);
+  Rational operator++(int);
   // Декремент
   Rational &operator--();
-  Rational operator--(int32_t);
+  Rational operator--(int);
   // Операторы сравнения для равенства, неравенства, меньшей и большей, и равности или больших
   bool operator==(const Rational &other) const;
   bool operator!=(const Rational &other) const;
@@ -85,6 +90,20 @@ class Rational {
   bool operator>(const Rational &other) const;
   bool operator<=(const Rational &other) const;
   bool operator>=(const Rational &other) const;
+
+  bool operator==(int value) const;
+  bool operator!=(int value) const;
+  bool operator<(int value) const;
+  bool operator>(int value) const;
+  bool operator<=(int value) const;
+  bool operator>=(int value) const;
+
+  friend bool operator<(const int &num, const Rational &rat);
+  friend bool operator>(const int &num, const Rational &rat);
+  friend bool operator<=(const int &num, const Rational &rat);
+  friend bool operator>=(const int &num, const Rational &rat);
+  friend bool operator==(const int &num, const Rational &rat);
+  friend bool operator!=(const int &num, const Rational &rat);
 
   // Функция вывода в поток
   friend std::ostream &operator<<(std::ostream &os, const Rational &rational);

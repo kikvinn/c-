@@ -1,9 +1,12 @@
 Checks: > 
-        readability-identifier-naming,
-        cppcoreguidelines-init-variables,
-        google-runtime-int,
-        readability-isolate-declaration,
-        google-build-using-namespace
+  readability-identifier-naming,
+  cppcoreguidelines-init-variables,
+  google-runtime-int,
+  readability-isolate-declaration,
+  google-build-using-namespace,
+  google-explicit-constructor,
+  readability-inconsistent-declaration-parameter-name,
+  
         
 WarningsAsErrors: "*"
 
