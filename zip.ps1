@@ -1,6 +1,6 @@
 $sourceFile1 = "C:\Users\kikvinn\Desktop\Project\c-\rational\rational.cpp"
 $sourceFile2 = "C:\Users\kikvinn\Desktop\Project\c-\rational\rational.h"
-$sourcefolder = "C:\Users\kikvinn\Desktop\Project\c-\rational\*"
+$sourcefolder = "C:\Users\kikvinn\Desktop\Project\c-\cstring\*"
 
 $outputZipPath = "C:\Users\kikvinn\Desktop\Project\c-/output.zip"
 

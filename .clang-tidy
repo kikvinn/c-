@@ -6,7 +6,8 @@ Checks: >
   google-build-using-namespace,
   google-explicit-constructor,
   readability-inconsistent-declaration-parameter-name,
-  
+  google-readability-casting,
+  readability-braces-around-statements
         
 WarningsAsErrors: "*"
 
